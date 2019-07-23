@@ -1,5 +1,7 @@
 # backend-test
 
+[![Build Status](https://travis-ci.org/aghigo/backend-test.svg?branch=master)](https://travis-ci.org/aghigo/backend-test) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=iti.itau%3Abackend-test&metric=alert_status)](https://sonarcloud.io/dashboard?id=iti.itau%3Abackend-test) [![Coverage Status](https://coveralls.io/repos/github/aghigo/backend-test/badge.svg?branch=master)](https://coveralls.io/github/aghigo/backend-test?branch=master)
+
 CLI application that parses a custom formatted .log file (csv like) with a list of account transactions data and displays a result summary 
 
 ### How to build the application
