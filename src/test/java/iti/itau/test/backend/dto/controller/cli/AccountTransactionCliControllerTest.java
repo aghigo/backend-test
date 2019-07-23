@@ -11,8 +11,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import iti.itau.test.backend.dto.controller.cli.AccountTransactionCliController;
-
 public class AccountTransactionCliControllerTest {
     public static String newline = System.getProperty("line.separator", "\n");
     
@@ -45,9 +43,9 @@ public class AccountTransactionCliControllerTest {
         StringBuilder expected = new StringBuilder();
         expected.append("Most spent category: hospedagem").append(newline);
         expected.append("Most spent month: MAY").append(newline);
-        expected.append("Total spent: 3318,35").append(newline);
-        expected.append("Total received: 528,75").append(newline);
-        expected.append("Total balance: -2789,60").append(newline);
+        expected.append("Total spent: " + 3318.35).append(newline);
+        expected.append("Total received: " + 528.75).append(newline);
+        expected.append("Total balance: " + -2789.60).append(newline);
         
         assertEquals(expected.toString(), outContent.toString());
     }

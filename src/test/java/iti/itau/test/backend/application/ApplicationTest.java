@@ -68,9 +68,9 @@ public class ApplicationTest {
         StringBuilder expected = new StringBuilder();
         expected.append("Most spent category: hospedagem" + NEW_LINE);
         expected.append("Most spent month: MAY" + NEW_LINE);
-        expected.append("Total spent: 3318,35" + NEW_LINE);
-        expected.append("Total received: 528,75" + NEW_LINE);
-        expected.append("Total balance: -2789,60" + NEW_LINE);
+        expected.append("Total spent: " + 3318.35 + NEW_LINE);
+        expected.append("Total received: " + 528.75 + NEW_LINE);
+        expected.append("Total balance: " + -2789.60 + NEW_LINE);
         
         assertEquals(expected.toString(), outContent.toString());
     }

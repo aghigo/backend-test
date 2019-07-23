@@ -23,10 +23,13 @@ public class AccountTransactionCliController {
         List<AccountTransactionDTO> accountTransactions = this.service.parseLogFile(file);
         AccountTransactionResultReportDTO result = this.service.getResultReport(accountTransactions);
         
-        System.out.printf("Most spent category: %s%s", result.getMostSpentCategory(), NEWLINE);
-        System.out.printf("Most spent month: %s%s", result.getMostSpentMonth().name(), NEWLINE);
-        System.out.printf("Total spent: %.2f%s", result.getTotalSpent().doubleValue(), NEWLINE);
-        System.out.printf("Total received: %.2f%s", result.getTotalReceived().doubleValue(), NEWLINE);
-        System.out.printf("Total balance: %.2f%s", result.getAccountBalance(), NEWLINE);
+        StringBuilder output = new StringBuilder();
+        output.append("Most spent category: ").append(result.getMostSpentCategory()).append(NEWLINE);
+        output.append("Most spent month: ").append(result.getMostSpentMonth().name()).append(NEWLINE);
+        output.append("Total spent: ").append(result.getTotalSpent().doubleValue()).append(NEWLINE);
+        output.append("Total received: ").append(result.getTotalReceived().doubleValue()).append(NEWLINE);
+        output.append("Total balance: ").append(result.getAccountBalance().doubleValue()).append(NEWLINE);
+        
+        System.out.print(output.toString());
     }
 }
