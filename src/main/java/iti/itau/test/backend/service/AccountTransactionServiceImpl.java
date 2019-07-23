@@ -2,9 +2,11 @@ package iti.itau.test.backend.service;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.math.BigDecimal;
+import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.time.Month;
@@ -29,7 +31,7 @@ public class AccountTransactionServiceImpl implements AccountTransactionService 
     public List<AccountTransactionDTO> parseLogFile(File file) throws IOException {
         List<AccountTransactionDTO> accountTransactions = new ArrayList<>();
         
-        try(BufferedReader bufferedReader = new BufferedReader(new FileReader(file))) {
+        try(BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8))) {
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM", Locale.ENGLISH);
             DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
             final int totalRequiredFields = 3;
