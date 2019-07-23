@@ -5,8 +5,6 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.time.Month;
 import java.time.MonthDay;
@@ -31,12 +29,10 @@ public class AccountTransactionServiceImpl implements AccountTransactionService 
         try {
             List<AccountTransactionDTO> accountTransactions = new ArrayList<>();
             
-            List<String> lines = Files.readAllLines(Paths.get(file.getPath())).stream().skip(1).collect(Collectors.toList());
-            
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM", Locale.ENGLISH);
-            DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(Locale.GERMAN);
             final int totalRequiredFields = 3;
             
+            List<String> lines = Files.readAllLines(Paths.get(file.getPath())).stream().skip(1).collect(Collectors.toList());
             for(String line : lines) {
                 String[] fields = line.split("\\s{2,}");
                 if(fields.length < totalRequiredFields) {
@@ -52,7 +48,8 @@ public class AccountTransactionServiceImpl implements AccountTransactionService 
                 
                 String description = fields[1].trim();
                 
-                BigDecimal value = BigDecimal.valueOf(decimalFormat.parse(fields[2].trim()).doubleValue());
+                fields[2] = fields[2].trim().replace(".", "").replace(",", ".");
+                BigDecimal value = BigDecimal.valueOf(Double.valueOf(fields[2]));
                 
                 String category = (fields.length < 4) ? "" : fields[3].trim();
                 
