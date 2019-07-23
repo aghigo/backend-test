@@ -7,7 +7,7 @@ addons:
   sonarcloud:
     organization: "aghigo-github"
     token:
-      secure: "b98e1088885c2bd91df964efe11ccb4aae26fb89" # encrypted value of your token
+      secure: "dc6439617b005639516caea47d3138c79d1da2e6" # encrypted value of your token
 script:
   - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent -Pcoverage install sonar:sonar
 after_success:
