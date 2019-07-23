@@ -11,7 +11,7 @@ import org.junit.Test;
 import iti.itau.test.backend.application.Application;
 
 public class ApplicationTest {
-    public static String newline = System.getProperty("line.separator", "\n");
+    public static final String NEW_LINE = System.getProperty("line.separator", "\n");
     
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
@@ -35,7 +35,7 @@ public class ApplicationTest {
         Application.main(new String[] {});
         
         assertEquals("", outContent.toString());
-        assertEquals("File path not provided" + newline, errContent.toString());
+        assertEquals("File path not provided" + NEW_LINE, errContent.toString());
     }
     
     @Test
@@ -50,7 +50,7 @@ public class ApplicationTest {
         Application.main(new String[] { "src/test/resources/invalid-line.log" });
         
         assertEquals("", outContent.toString());
-        assertEquals("Line should have at least 3 required fields: (Data, Descricao, Valor)" + newline, errContent.toString());
+        assertEquals("Line should have at least 3 required fields: (Data, Descricao, Valor)" + NEW_LINE, errContent.toString());
     }
     
     @Test
@@ -58,7 +58,7 @@ public class ApplicationTest {
         Application.main(new String[] { "src/test/resources/invalid-field.log" });
         
         assertEquals("", outContent.toString());
-        assertEquals("Unparseable date: \"22xxxxxx-Mar\"" + newline, errContent.toString());
+        assertEquals("Unparseable date: \"22xxxxxx-Mar\"" + NEW_LINE, errContent.toString());
     }
     
     @Test
@@ -66,11 +66,11 @@ public class ApplicationTest {
         Application.main(new String[] { "src/test/resources/account-transactions.log" });
         
         StringBuilder expected = new StringBuilder();
-        expected.append("Most spent category: hospedagem" + newline);
-        expected.append("Most spent month: MAY" + newline);
-        expected.append("Total spent: 3318,35" + newline);
-        expected.append("Total received: 528,75" + newline);
-        expected.append("Total balance: -2789,60" + newline);
+        expected.append("Most spent category: hospedagem" + NEW_LINE);
+        expected.append("Most spent month: MAY" + NEW_LINE);
+        expected.append("Total spent: 3318,35" + NEW_LINE);
+        expected.append("Total received: 528,75" + NEW_LINE);
+        expected.append("Total balance: -2789,60" + NEW_LINE);
         
         assertEquals(expected.toString(), outContent.toString());
     }
