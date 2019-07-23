@@ -1,12 +1,10 @@
 package iti.itau.test.backend.service;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.math.BigDecimal;
-import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -30,18 +28,16 @@ import iti.itau.test.backend.dto.AccountTransactionResultReportDTO;
 public class AccountTransactionServiceImpl implements AccountTransactionService {
     @Override
     public List<AccountTransactionDTO> parseLogFile(File file) throws IOException {
-        List<AccountTransactionDTO> accountTransactions = new ArrayList<>();
-        
-        try(BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8))) {
+        try {
+            List<AccountTransactionDTO> accountTransactions = new ArrayList<>();
+            
+            List<String> lines = Files.readAllLines(Paths.get(file.getPath())).stream().skip(1).collect(Collectors.toList());
+            
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM", Locale.ENGLISH);
-            NumberFormat numberFormat = NumberFormat.getNumberInstance(Locale.GERMAN);
-            DecimalFormat decimalFormat = (DecimalFormat) numberFormat;
+            DecimalFormat decimalFormat = (DecimalFormat) NumberFormat.getNumberInstance(Locale.GERMAN);
             final int totalRequiredFields = 3;
-
-            List<String> lines = bufferedReader.lines().skip(1).collect(Collectors.toList());
-            int i = 0;
+            
             for(String line : lines) {
-                System.out.println("TESTING LINE " + i++ + ":" +  line);
                 String[] fields = line.split("\\s{2,}");
                 if(fields.length < totalRequiredFields) {
                     throw new IOException("Line should have at least " + totalRequiredFields + " required fields: (Data, Descricao, Valor)");
@@ -64,11 +60,11 @@ public class AccountTransactionServiceImpl implements AccountTransactionService 
                 
                 accountTransactions.add(accountTransaction);
             }
+            
+            return accountTransactions;
         } catch (Exception e) {
             throw new IOException(e.getMessage(), e);
         }
-        
-        return accountTransactions;
     }
 
     @Override

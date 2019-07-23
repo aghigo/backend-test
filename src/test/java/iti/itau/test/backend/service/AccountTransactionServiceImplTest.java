@@ -6,9 +6,9 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.nio.file.NoSuchFileException;
 import java.text.ParseException;
 import java.time.Month;
 import java.time.MonthDay;
@@ -21,8 +21,6 @@ import org.junit.Test;
 
 import iti.itau.test.backend.dto.AccountTransactionDTO;
 import iti.itau.test.backend.dto.AccountTransactionResultReportDTO;
-import iti.itau.test.backend.service.AccountTransactionService;
-import iti.itau.test.backend.service.AccountTransactionServiceImpl;
 
 public class AccountTransactionServiceImplTest {
     private AccountTransactionService accountTransactionService;
@@ -54,7 +52,7 @@ public class AccountTransactionServiceImplTest {
             fail("Should throw IOException");
         } catch (IOException e) {
             // THEN
-            assertEquals(FileNotFoundException.class, e.getCause().getClass());
+            assertEquals(NoSuchFileException.class, e.getCause().getClass());
         }
     }
 
