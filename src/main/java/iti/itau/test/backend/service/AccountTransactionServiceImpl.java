@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.time.Month;
 import java.time.MonthDay;
@@ -33,11 +34,14 @@ public class AccountTransactionServiceImpl implements AccountTransactionService 
         
         try(BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8))) {
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM", Locale.ENGLISH);
-            DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
+            NumberFormat numberFormat = NumberFormat.getNumberInstance(Locale.GERMAN);
+            DecimalFormat decimalFormat = (DecimalFormat) numberFormat;
             final int totalRequiredFields = 3;
 
             List<String> lines = bufferedReader.lines().skip(1).collect(Collectors.toList());
+            int i = 0;
             for(String line : lines) {
+                System.out.println("TESTING LINE " + i++ + ":" +  line);
                 String[] fields = line.split("\\s{2,}");
                 if(fields.length < totalRequiredFields) {
                     throw new IOException("Line should have at least " + totalRequiredFields + " required fields: (Data, Descricao, Valor)");
