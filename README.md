@@ -12,11 +12,21 @@
 
 ### Executar
 
+#### Linux/Unix/Mac
+
 `./run.sh <arquivo>`
 
 Exemplo:
 
 `./run.sh src/test/resources/account-transactions.log`
+
+#### Windows
+
+`run.cmd <arquivo>`
+
+Exemplo:
+
+`run.cmd src/test/resources/account-transactions.log`
 
 ### será avaliado
 
