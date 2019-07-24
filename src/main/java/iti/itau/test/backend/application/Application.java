@@ -2,7 +2,7 @@ package iti.itau.test.backend.application;
 import java.io.File;
 import java.io.IOException;
 
-import iti.itau.test.backend.dto.controller.cli.AccountTransactionCliController;
+import iti.itau.test.backend.controller.cli.AccountTransactionCliController;
 
 public class Application {
     private AccountTransactionCliController controller;

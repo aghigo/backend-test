@@ -1,4 +1,4 @@
-package iti.itau.test.backend.dto.controller.cli;
+package iti.itau.test.backend.controller.cli;
 
 import java.io.File;
 import java.io.IOException;

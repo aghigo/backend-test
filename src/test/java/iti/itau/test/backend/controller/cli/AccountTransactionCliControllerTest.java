@@ -1,4 +1,4 @@
-package iti.itau.test.backend.dto.controller.cli;
+package iti.itau.test.backend.controller.cli;
 
 import static org.junit.Assert.assertEquals;
 
@@ -10,6 +10,8 @@ import java.io.PrintStream;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import iti.itau.test.backend.controller.cli.AccountTransactionCliController;
 
 public class AccountTransactionCliControllerTest {
     public static String newline = System.getProperty("line.separator", "\n");
