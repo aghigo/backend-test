@@ -1,20 +1,22 @@
 # backend-test
 
-[![Build Status](https://travis-ci.org/aghigo/backend-test.svg?branch=master)](https://travis-ci.org/aghigo/backend-test) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=iti.itau%3Abackend-test&metric=alert_status)](https://sonarcloud.io/dashboard?id=iti.itau%3Abackend-test) [![Coverage Status](https://coveralls.io/repos/github/aghigo/backend-test/badge.svg?branch=master)](https://coveralls.io/github/aghigo/backend-test?branch=master)
+[![Build Status](https://travis-ci.org/aghigo/backend-test.svg?branch=master)](https://travis-ci.org/aghigo/backend-test) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=iti.itau%3Abackend-test&metric=alert_status)](https://sonarcloud.io/dashboard?id=iti.itau%3Abackend-test) [![Coverage Status](https://coveralls.io/repos/github/aghigo/backend-test/badge.svg?branch=master)](https://coveralls.io/github/aghigo/backend-test?branch=master) 
 
-CLI application that parses a custom formatted .log file (csv like) with a list of account transactions data and displays a result summary 
+### Compilar
 
-### How to build the application
+`make compile`
 
-`./mvnw clean package install -U`
+### Testar
 
-### How to test
+`make test` 
 
-`./mvnw test` 
+### Executar
 
-### How to run
+`./run.sh <arquivo>`
 
-`java -jar target/backend-test-1.0.0.jar src/test/resources/account-transactions.log`
+Exemplo:
+
+`./run.sh src/test/resources/account-transactions.log`
 
 ### será avaliado
 
