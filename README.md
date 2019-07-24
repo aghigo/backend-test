@@ -1,39 +1,56 @@
+
 # backend-test
 
 [![Build Status](https://travis-ci.org/aghigo/backend-test.svg?branch=master)](https://travis-ci.org/aghigo/backend-test) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=iti.itau%3Abackend-test&metric=alert_status)](https://sonarcloud.io/dashboard?id=iti.itau%3Abackend-test) [![Coverage Status](https://coveralls.io/repos/github/aghigo/backend-test/badge.svg?branch=master)](https://coveralls.io/github/aghigo/backend-test?branch=master) 
 
+### Descrição
+Aplicação de linha de comando que recebe via parâmetro um arquivo .log de input, realiza parse e exibe na tela as informações das movimentações da conta.
+
+A solução foi implementada utilizando:
+
+- Linguagem de programação Java (versão 8+);
+	- Requer o [Java 8+](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) instalado na máquina
+- JUnit 4 para testes;
+- Maven para build;
+- make e bash para criação dos scripts de compilação, teste e execução para Linux/Unix/OS X e Windows;
+- Travis CI para deploy;
+- Coveralls para análise da cobertura de testes;
+- SonarCloud para análise da qualidade do código.
+
 ### Compilar
 
+#### Linux / Unix / OS X
 `make compile`
+#### Windows
+`compile.cmd`
 
 ### Testar
 
-`make test` 
+#### Linux / Unix / OS X
+`make test`
+#### Windows
+`test.cmd`
 
 ### Executar
 
-#### Linux/Unix/Mac
-
+#### Linux / Unix / OS X
+##### Sintaxe
 `./run.sh <arquivo>`
-
-Exemplo:
-
+##### Exemplo
 `./run.sh src/test/resources/account-transactions.log`
-
 #### Windows
-
+##### Sintaxe
 `run.cmd <arquivo>`
-
-Exemplo:
-
+##### Exemplo
 `run.cmd src/test/resources/account-transactions.log`
+
+---
 
 ### será avaliado
 
 1. legibilidade
 2. manutenção
 3. testabilidade
-
 ## requisitos
 
 * desenvolva a solução em uma linguagem da sua escolha: **C#** ou **Java**;
