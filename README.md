@@ -17,6 +17,10 @@ A solução foi implementada utilizando:
 - Coveralls para análise da cobertura de testes;
 - SonarCloud para análise da qualidade do código.
 
+## Comandos
+
+*Obs: para executar os comandos abaixo, é necessário estar no diretório raíz do projeto.*
+
 ### Compilar
 
 #### Linux / Unix / OS X
